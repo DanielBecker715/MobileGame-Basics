@@ -12,7 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/CheckGame.unity
     guid: f86bfdc08bae31545a1d09147858214d
   - enabled: 1
-    path: Assets/Scenes/Map.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: ef89983d4dbdbad40bc76f8af71e2539
+  - enabled: 1
+    path: Assets/Scenes/Maps/Cassette1-Winter.unity
     guid: 0c09a832931c2804d8d5a802c2621726
   - enabled: 1
     path: Assets/Scenes/KickScreen.unity
