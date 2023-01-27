@@ -18,9 +18,6 @@ public class UIMainMenuController : MonoBehaviour
     public Animator animator;
     public GameObject fadeBackgroundObject;
 
-    [Header("Steam")]
-    public TextMeshProUGUI textSteamName;
-
     // Start is called before the first frame update
     void Start()
     {

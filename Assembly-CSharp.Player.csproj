@@ -59,11 +59,9 @@
     <Compile Include="Assets\Scripts\SceneLoader\AsyncSceneLoader.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasGroup\CanvasGroupActivator.cs" />
     <Compile Include="Assets\Scripts\Controller\Graphic Settings\GraphicController.cs" />
-    <Compile Include="Assets\Scripts\UI\Dropdown\Language\LanguageDropDown.cs" />
     <Compile Include="Assets\Scripts\Controller\Mainmenu\UIMainMenuController.cs" />
     <Compile Include="Assets\Scripts\Animations\WaitForAnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\UI\Text\TextManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Dropdown\Resolution\ResolutionDropdown.cs" />
     <Compile Include="Assets\Scripts\Controller\CheckGame\CheckGameManager.cs" />
     <Compile Include="Assets\Scripts\Controller\Intro\UIIntroController.cs" />
     <Compile Include="Assets\Imported\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -75,8 +73,10 @@
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Controller\CheckGame\UICheckGameController.cs" />
     <Compile Include="Assets\Scripts\Controller\KickScreen\KickScreenManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Dropdown\RefreshRate\RefreshRateDropdown.cs" />
     <Compile Include="Assets\Scripts\UI\Panel\PanelManager.cs" />
+    <Compile Include="Assets\Scripts\UI\PageSwiper\PageSwiper.cs" />
+    <Compile Include="Assets\Scripts\UI\BackgroundScroller\BackgroundScroller.cs" />
+    <Compile Include="Assets\Scripts\UI\OptionMenu\UIOptionMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
