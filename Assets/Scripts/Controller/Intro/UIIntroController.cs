@@ -9,7 +9,6 @@ public class UIIntroController : MonoBehaviour
     //Import Animation Trigger
     public WaitForAnimationTrigger AnimationTriggers;
     public PanelManager panelManager;
-    public CanvasGroupActivator canvasGroupActivator;
 
     [Header("General Settings")]
     private bool currentSceneCompleteLoaded = false;
@@ -41,7 +40,6 @@ public class UIIntroController : MonoBehaviour
 
     private IEnumerator Start()
     {
-        canvasGroupActivator = (CanvasGroupActivator)GameObject.FindObjectOfType(typeof(CanvasGroupActivator));
         panelManager = (PanelManager)GameObject.FindObjectOfType(typeof(PanelManager));
 
         panelManager.DisableAllPanelVisibilitys();
@@ -122,7 +120,7 @@ public class UIIntroController : MonoBehaviour
             gameIntroPanel.SetActive(true);
             skipPanel.SetActive(true);
 
-            canvasGroupActivator.enableCanvasGroup(skipPanel.GetComponent<CanvasGroup>());
+            CanvasGroupActivator.enableCanvasGroup(skipPanel.GetComponent<CanvasGroup>());
             VideoPlayer videoPlayer = gameIntroPanel.GetComponentInChildren<VideoPlayer>();
 
             videoPlayer.Play();
@@ -136,7 +134,7 @@ public class UIIntroController : MonoBehaviour
             Debug.Log("Game Intro Ended");
             gameIntroPanel.SetActive(false);
             skipPanel.SetActive(false);
-            canvasGroupActivator.disableCanvasGroup(skipPanel.GetComponent<CanvasGroup>());
+            CanvasGroupActivator.disableCanvasGroup(skipPanel.GetComponent<CanvasGroup>());
             yield return null;
         }
         Debug.Log("Game Intro Is Disabled");
@@ -159,7 +157,7 @@ public class UIIntroController : MonoBehaviour
     public IEnumerator ShowDisclaimer()
     {
         disclaimerPanel.SetActive(true);
-        canvasGroupActivator.enableCanvasGroup(disclaimerPanel.GetComponent<CanvasGroup>());
+        CanvasGroupActivator.enableCanvasGroup(disclaimerPanel.GetComponent<CanvasGroup>());
 
         Debug.Log("Showing Disclaimer");
 
@@ -167,7 +165,7 @@ public class UIIntroController : MonoBehaviour
 
         Debug.Log("Suppressing Disclaimer");
 
-        canvasGroupActivator.disableCanvasGroup(disclaimerPanel.GetComponent<CanvasGroup>());
+        CanvasGroupActivator.disableCanvasGroup(disclaimerPanel.GetComponent<CanvasGroup>());
         disclaimerPanel.SetActive(false);
         yield return null;
     }

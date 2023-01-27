@@ -6,8 +6,6 @@ using UnityEngine;
 [System.Serializable]
 public class PanelManager : MonoBehaviour
 {
-    public CanvasGroupActivator canvasGroupActivator;
-
     [Header("Panel List")]
     [Tooltip("First panel will be shown, all others will be hidden with canvas group aplha")]
     public PanelAttributes[] panels;
@@ -38,11 +36,11 @@ public class PanelManager : MonoBehaviour
             panels[i].menuPanel.SetActive(panels[i].activation);
             if (!panels[i].showCanvasGroup)
             {
-                canvasGroupActivator.disableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
+                CanvasGroupActivator.disableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
             }
             else
             {
-                canvasGroupActivator.enableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
+                CanvasGroupActivator.enableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
             }
         }
     }
@@ -54,7 +52,7 @@ public class PanelManager : MonoBehaviour
     public void EnablePanelVisibility(GameObject menuPanel)
     {
         menuPanel.SetActive(true);
-        canvasGroupActivator.enableCanvasGroup(menuPanel.GetComponent<CanvasGroup>());
+        CanvasGroupActivator.enableCanvasGroup(menuPanel.GetComponent<CanvasGroup>());
     }
     
     /// <summary>
@@ -64,7 +62,7 @@ public class PanelManager : MonoBehaviour
     public void DisablePanelVisibility(GameObject menuPanel)
     {
         menuPanel.SetActive(false);
-        canvasGroupActivator.disableCanvasGroup(menuPanel.GetComponent<CanvasGroup>());
+        CanvasGroupActivator.disableCanvasGroup(menuPanel.GetComponent<CanvasGroup>());
     }
 
     /// <summary>
@@ -75,7 +73,7 @@ public class PanelManager : MonoBehaviour
         for (int i = 0; i < panels.Length; i++)
         {
             panels[i].menuPanel.SetActive(true);
-            canvasGroupActivator.enableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
+            CanvasGroupActivator.enableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
         }
     }
 
@@ -87,7 +85,7 @@ public class PanelManager : MonoBehaviour
         for (int i = 0; i < panels.Length; i++)
         {
             panels[i].menuPanel.SetActive(false);
-            canvasGroupActivator.disableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
+            CanvasGroupActivator.disableCanvasGroup(panels[i].menuPanel.GetComponent<CanvasGroup>());
         }
     }
 }

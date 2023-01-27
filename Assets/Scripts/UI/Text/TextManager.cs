@@ -42,7 +42,7 @@ public class TextManager : MonoBehaviour
     private string getTextInCurrentLanguage()
     {
         //Gets current language choosed by player
-        var currentLanguage = languageController.returnLatestLanguageFromStorage();
+        var currentLanguage = languageController.getLanguageFromStorage();
 
         var currentScript = gameObject.GetComponent(typeof(TextManager)) as TextManager;
 

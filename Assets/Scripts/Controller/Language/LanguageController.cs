@@ -7,7 +7,15 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class LanguageController : MonoBehaviour
 {
-    private language defaultLanguage = language.Spanish;
+    private language defaultLanguage = language.English;
+
+    public string[] availableLanguages = new string[]
+    {
+         language.German.ToString(),
+         language.English.ToString(),
+         language.Spanish.ToString(),
+         language.French.ToString()
+    };
 
     public enum language
     {
@@ -23,7 +31,7 @@ public class LanguageController : MonoBehaviour
     /// Upper and lower case is not observed 
     /// </summary>
     /// <returns>Returns enum of the current language.</returns>
-    public language returnLatestLanguageFromStorage()
+    public language getLanguageFromStorage()
     {
         language lang;
 
@@ -35,24 +43,34 @@ public class LanguageController : MonoBehaviour
     }
 
     /// <summary>
-    /// Converts a string to an enum language. Upper and lower case is not observed 
+    /// Switches the language by converting a string to an enum language. Upper and lower case is not observed 
     /// </summary>
     /// <returns>Returns the converted input value in an enum if it exists</returns>
-    public language convertStringToEnum(string language)
+    public void switchLanguage(string language)
     {
         language lang;
 
         //if language exists
-        if (Enum.TryParse<language>(language, true, out lang))
+        if (!Enum.TryParse<language>(language.ToString(), true, out lang))
         {
-            return lang;
+            throw new NotImplementedException();
         }
-        throw new NotImplementedException();
+        saveLanguageToStorage(lang);
     }
 
     public void saveLanguageToStorage(language language)
     {
         PlayerPrefs.SetString("currentLanguage", language.ToString());
         Debug.Log("Changed language to: " + language);
+    }
+
+    public void refreshAllTexts()
+    {
+        TextManager[] allTextManagers = FindObjectsOfType(typeof(TextManager)) as TextManager[];
+
+        foreach (var textManager in allTextManagers)
+        {
+            textManager.refreshText();
+        }
     }
 }
