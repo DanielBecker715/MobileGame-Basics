@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class LanguageController : MonoBehaviour
 {
     private language defaultLanguage = language.English;
+    public Canvas canvasGameObject;
 
     public string[] availableLanguages = new string[]
     {
@@ -72,5 +70,14 @@ public class LanguageController : MonoBehaviour
         {
             textManager.refreshText();
         }
+    }
+
+    /// <summary>
+    /// If the language has changed something weird happens in the ui (wrong positions).
+    /// If you enable and disable the canvas everythings run normal.
+    /// </summary>
+    public void reloadCanvas()
+    {
+        Canvas.ForceUpdateCanvases();
     }
 }
